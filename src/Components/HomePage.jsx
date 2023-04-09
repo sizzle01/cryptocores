@@ -72,7 +72,7 @@ const HomePage = () => {
       <div className="support-banner">
         <div className="support-info">
           <h1 className="support-text-header">We Provide 24/7 support, Contact Us we are here to help! </h1>
-          <p>Easily accessible support, online business environment. eUKhost’s experienced team of cryptocurrency experts is available 24 hours a day, 7 days a week, ensuring you have uninterrupted service and support. So, no matter what day or time you need to contact us, help is just a click away.</p>
+          <p>Easily accessible support our experienced team of cryptocurrency experts is available 24 hours a day, 7 days a week, ensuring you have uninterrupted service and support. So, no matter what day or time you need to contact us, help is just a click away.</p>
           <p></p>
           <div>
           <Link className="connect-btn" to="/support">
