@@ -59,4 +59,32 @@
   border-radius: 15px;
   background-color:  #39A2DB;
   padding: 7px 10px;
+};
+
+.modal-qr{
+width: 85%;
+
+}
+.qr-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.qr-container > img{
+ width: 100%;
+}
+.qrcode-info{
+  text-align: center;
+  background-color: #04333d;
+  padding-bottom: 5px;
+}
+.qrcode-info> h4{
+  font-size: 18px;
+  color:  #39A2DB;
+}
+.qrcode-info> p{
+  font-size: 15px;
+  color:  #39A2DB;
+
 }

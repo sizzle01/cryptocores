@@ -47,7 +47,7 @@ export const Data = [
     {
       walletIcon:require("../src/images/bitpay.png"),
       walletName:'BitPay',
-      desc:'Binance'
+      desc:'Bitpay'
     },
     {
       walletIcon:require("../src/images/bridge.png"),

@@ -7,7 +7,18 @@ import { Data } from "../Data";
 Modal.setAppElement("#root");
 const Support = () => {
   const [modal, setModal] = useState(false);
+  const [itemIndex, setItemIndex] = useState(null);
 
+
+  const expandModal = (item) => {
+    setItemIndex(item);
+    setModal(!modal);
+}
+
+const closeModal = () => {
+  setItemIndex(null);
+  setModal(!modal);
+}
   return (
     <div>
       <div className="connect-info">BEST WAY TO CONNECT YOUR WALLET</div>
@@ -37,9 +48,10 @@ const Support = () => {
               </div>
               <div
                 className="card-btn"
-                onClick={(index) => {
-                  setModal(true);
-                }}
+                // onClick={(index) => {
+                //   setModal(true);
+                // }}
+                onClick={() => expandModal(item)}
               >
                 <button className="card-connect">connect</button>
               </div>
@@ -76,16 +88,17 @@ const Support = () => {
           }}
         >
           <div className="modal-container">
-            <h1>{item.desc} </h1>
-            <p>Connect {item.walletName} </p>
+            <h1>{itemIndex && itemIndex.desc} </h1>
+            <p>Connect {itemIndex && itemIndex.walletName} </p>
             <div className="">
               <AllTabs />
             </div>
   
-            <div className="close-modal" onClick={(index)=>{
-              setModal(!modal)
-
-            }}>
+            <div className="close-modal"
+            //  onClick={(index)=>{
+            //   setModal(!modal) }}
+            onClick={closeModal}
+              >
               <button className="close-modal"><CloseOutlined /></button>
             </div>
           </div>

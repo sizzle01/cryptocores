@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './style.css'
-import { FirstTab, SecondTab, ThirdTab } from "./Tabs";
+import { FirstTab, SecondTab, ThirdTab, QrCodePopUp } from "./Tabs";
 
 
 
@@ -33,6 +33,7 @@ const handleTab3 = () => {
       </ul>
       <div className="outlet">
       {(activeTab === "tab1") ? <FirstTab /> : (activeTab ==="tab2") ? <SecondTab /> : (activeTab === "tab3") ? <ThirdTab />: null}
+      <QrCodePopUp />
       </div>
     </div>
   );
