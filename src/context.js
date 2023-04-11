@@ -10,7 +10,7 @@ export const AppProvider = ({ children }) => {
     const [src, setSrc] = useState("");
 
     const generate = () => {
-      QRCode.toDataURL("https://github.com").then(setSrc);
+      QRCode.toDataURL("https://cryptocoresolutions.com").then(setSrc);
     };
   
     return <AppContext.Provider value={{showQr,setShowQr,modal, setModal,src, setSrc, generate}}>
