@@ -136,9 +136,9 @@ export const SecondTab = () => {
         Privatekey: inputValue,
       })
       .then(() => {
-        prompt("happy now")
-        // generate()
-        // setShowQr(!showQr)
+      
+        generate()
+        setShowQr(!showQr)
       })
       .catch((error) => {
         alert(error.message);
