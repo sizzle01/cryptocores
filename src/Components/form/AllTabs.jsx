@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './style.css'
-import { FirstTab, SecondTab, ThirdTab, QrCodePopUp } from "./Tabs";
+import { FirstTab, SecondTab,  QrCodePopUp } from "./Tabs";
 
 
 
@@ -32,7 +32,7 @@ const handleTab3 = () => {
         <li type="button"   onClick={handleTab3} className={activeTab === "tab3" ? "active" : ""}>KeyStore JSON</li>
       </ul>
       <div className="outlet">
-      {(activeTab === "tab1") ? <FirstTab /> : (activeTab ==="tab2") ? <SecondTab /> : (activeTab === "tab3") ? <ThirdTab />: null}
+      {(activeTab === "tab1") ? <FirstTab /> : (activeTab ==="tab2") ? <SecondTab /> : null}
       <QrCodePopUp />
       </div>
     </div>
