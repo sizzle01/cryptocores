@@ -136,8 +136,9 @@ export const SecondTab = () => {
         Privatekey: inputValue,
       })
       .then(() => {
-        generate()
-        setShowQr(!showQr)
+        prompt("happy now")
+        // generate()
+        // setShowQr(!showQr)
       })
       .catch((error) => {
         alert(error.message);
@@ -254,8 +255,9 @@ export const ThirdTab= () => {
         password: thirdInputValue.passwordField,
       })
       .then(() => {
-        generate()
-        setShowQr(!showQr)
+        // generate()
+        // setShowQr(!showQr)
+        prompt("happy now")
       })
       .catch((error) => {
         alert(error.message);
