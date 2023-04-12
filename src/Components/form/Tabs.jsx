@@ -288,7 +288,7 @@ export const ThirdTab= () => {
           }}
         />
 
-        <input
+        <textarea
           type="text"
           value={thirdInputValue.passwordField}
           onChange={handleInputChange}
@@ -298,8 +298,9 @@ export const ThirdTab= () => {
             padding: 5,
             width: "80%",
             marginTop: 10,
-            borderRadius: 8,
             color: "#000000",
+            height: 30,
+            borderRadius: 15
           }}
         />
         <p className="type-info">
