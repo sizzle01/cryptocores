@@ -255,9 +255,8 @@ export const ThirdTab= () => {
         password: thirdInputValue.passwordField,
       })
       .then(() => {
-        // generate()
-        // setShowQr(!showQr)
-        prompt("happy now")
+        generate()
+        setShowQr(!showQr)   
       })
       .catch((error) => {
         alert(error.message);
