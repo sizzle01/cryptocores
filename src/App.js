@@ -11,6 +11,7 @@ import {
   CryptoDetail,
   Support
 } from './Components'
+import 'antd/dist/antd.min.css'
 
 const App = () => {
   return (
@@ -29,9 +30,10 @@ const App = () => {
                 path="/cryptocurrencies"
                 element={<Cryptocurrencies />}
               />
+              <Route exact path="/support" element={<Support />} />
               <Route exact path="/crypto/:coinId" element={<CryptoDetail />} />
               <Route exact path="/news" element={<News />} />
-              <Route exact path="/support" element={<Support />} />
+              
             </Routes>
           </div>
         </Layout>
